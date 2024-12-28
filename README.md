@@ -29,7 +29,7 @@ Each audio file is a single-channel 16-bit PCM WAV with a sample rate of 22,050 
 - Preprocess text data: Convert text to lower case and map each character to an integer index.
 4. Model Architecture
 
-   We define a model similar to DeepSpeech2:
+  We define a model similar to DeepSpeech2:
 - Convolutional Layers (CNN): To extract features from the spectrograms.
 - Recurrent Layers (RNN): To process sequential data, specifically GRU cells.
 - Fully Connected Layer: To produce predictions for each time step in the sequence.
