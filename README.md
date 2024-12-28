@@ -21,7 +21,7 @@ Each audio file is a single-channel 16-bit PCM WAV with a sample rate of 22,050 
   
 2. Load the LJSpeech Dataset
    
-4. Data Preprocessing
+3. Data Preprocessing
   
    We preprocess the dataset in the following steps:
 - Load the metadata: We read the metadata file that contains the names of the audio files and their corresponding transcriptions.
@@ -30,7 +30,7 @@ Each audio file is a single-channel 16-bit PCM WAV with a sample rate of 22,050 
 - Preprocess audio data: Convert the audio into spectrograms using the Short-Time Fourier Transform (STFT). Normalize the spectrograms to make the model more stable.
 - Preprocess text data: Convert text to lower case and map each character to an integer index.
   
-5. Model Architecture
+4. Model Architecture
 
    We define a model similar to DeepSpeech2:
 - Convolutional Layers (CNN): To extract features from the spectrograms.
@@ -43,19 +43,19 @@ Each audio file is a single-channel 16-bit PCM WAV with a sample rate of 22,050 
 - Dense Layer: For final classification.
 - Softmax Output Layer: Produces the predicted transcription.
   
-6. Training the Model
+5. Training the Model
 - Define the model with the appropriate input and output dimensions.
 - Compile the model using the Adam optimizer and the custom CTC loss function.
 - Train the model using the training dataset, and validate it on the validation dataset.
 - Monitor performance using a custom callback that evaluates Word Error Rate (WER) after each epoch.
   
-7. Evaluation
+6. Evaluation
   
    After training, we evaluate the model on the validation set:
 - We use the Word Error Rate (WER) to measure the model's accuracy.
 - The model is tested with random samples from the validation set to see how well it transcribes spoken text.
   
-8. Inference
+7. Inference
   
    After training, the model can be used for inference:
 - Input a new audio file, process it through the model, and get the transcription.
