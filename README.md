@@ -20,7 +20,7 @@ Each audio file is a single-channel 16-bit PCM WAV with a sample rate of 22,050 
 - jiwer: A library to evaluate speech recognition models by calculating the Word Error Rate (WER), which is commonly used for evaluating speech-to-text models.
   
 2. Load the LJSpeech Dataset
-   - Keras is used to download and extract the LJSpeech dataset
+- Keras is used to download and extract the LJSpeech dataset
    
 4. Data Preprocessing
   
