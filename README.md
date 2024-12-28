@@ -18,18 +18,21 @@ Each audio file is a single-channel 16-bit PCM WAV with a sample rate of 22,050 
 - matplotlib: A plotting library used for creating static, animated, and interactive visualizations in Python. We use it to visualize model training metrics like loss and accuracy.
 - IPython: Provides interactive computing features. The display module is used to display visual outputs, like training progress.
 - jiwer: A library to evaluate speech recognition models by calculating the Word Error Rate (WER), which is commonly used for evaluating speech-to-text models.
-2. Load the LJSpeech Dataset
-3. Data Preprocessing
   
-  We preprocess the dataset in the following steps:
+2. Load the LJSpeech Dataset
+   
+4. Data Preprocessing
+  
+   We preprocess the dataset in the following steps:
 - Load the metadata: We read the metadata file that contains the names of the audio files and their corresponding transcriptions.
 - Split the data into training and validation sets (90% training, 10% validation).
 - Define a character set: We define the set of characters (letters, punctuation, and spaces) that the model will recognize.
 - Preprocess audio data: Convert the audio into spectrograms using the Short-Time Fourier Transform (STFT). Normalize the spectrograms to make the model more stable.
 - Preprocess text data: Convert text to lower case and map each character to an integer index.
-4. Model Architecture
+  
+5. Model Architecture
 
-  We define a model similar to DeepSpeech2:
+   We define a model similar to DeepSpeech2:
 - Convolutional Layers (CNN): To extract features from the spectrograms.
 - Recurrent Layers (RNN): To process sequential data, specifically GRU cells.
 - Fully Connected Layer: To produce predictions for each time step in the sequence.
@@ -39,5 +42,23 @@ Each audio file is a single-channel 16-bit PCM WAV with a sample rate of 22,050 
 - Bidirectional GRU Layers: Capture sequential dependencies in the audio data.
 - Dense Layer: For final classification.
 - Softmax Output Layer: Produces the predicted transcription.
+  
+6. Training the Model
+- Define the model with the appropriate input and output dimensions.
+- Compile the model using the Adam optimizer and the custom CTC loss function.
+- Train the model using the training dataset, and validate it on the validation dataset.
+- Monitor performance using a custom callback that evaluates Word Error Rate (WER) after each epoch.
+  
+7. Evaluation
+  
+   After training, we evaluate the model on the validation set:
+- We use the Word Error Rate (WER) to measure the model's accuracy.
+- The model is tested with random samples from the validation set to see how well it transcribes spoken text.
+  
+8. Inference
+  
+   After training, the model can be used for inference:
+- Input a new audio file, process it through the model, and get the transcription.
+- The model's predictions are decoded and compared to the target transcription.
 
 
