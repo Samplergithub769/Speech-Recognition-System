@@ -62,4 +62,15 @@ Each audio file is a single-channel 16-bit PCM WAV with a sample rate of 22,050 
 - Input a new audio file, process it through the model, and get the transcription.
 - The model's predictions are decoded and compared to the target transcription.
 
+Conclusion
+- In practice, train for around 50 epochs or more. Each epoch takes approximately 5-6mn using a GeForce RTX 2080 Ti GPU. The model we trained at 50 epochs has a 
+  Word Error Rate (WER) ≈ 16% to 17%.
+
+Some of the transcriptions around epoch 50:
+
+![image](https://github.com/user-attachments/assets/acbc30b0-f042-4b0d-b924-1999d531c13d)
+
+![image](https://github.com/user-attachments/assets/9a0a30f1-fde2-4d71-b95e-fcb4c8350acd)
+
+
 
